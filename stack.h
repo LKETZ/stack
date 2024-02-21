@@ -31,7 +31,7 @@ char pop(StackPtr s)
         s->top=t->nextPtr;
         //free
         free(t);
-        printf("pop %c\n",value);
+        //printf("pop %c\n",value);
         s->size--;
         return value;
         
