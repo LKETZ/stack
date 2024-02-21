@@ -31,16 +31,19 @@ char pop(StackPtr s)
         s->top=t->nextPtr;
         //free
         free(t);
-        printf("pop %d\n ",value);
+        printf("pop %c\n",value);
         s->size--;
         return value;
         
     }
-    else printf("stack is empty\n");
-    return 0;
+    //else printf("stack is empty\n");
+    return '\0';
 }
 
-void pop_all(StackPtr s);
+void pop_all(StackPtr s)
+{
+    while(s->size>0) pop(s);
+}
 
 
 

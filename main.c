@@ -15,7 +15,7 @@ int main(int argc, char **argv){
 
 printf("Checking the parentheses in argv arguments\n");
 for(i=1;i<argc;i++){
-    s.size = 0;
+    match = 1;
    
     for(j=0;j<strlen(argv[i]);j++){
        /* Use stack to help with the parentheses*/
@@ -40,12 +40,12 @@ for(i=1;i<argc;i++){
         if(match==0) break;
 
     }
-    if(s.size > 0 ) printf("mismatch ;have open more");
-    else if(s.size < 0 ) printf("mismatch ;have close more");
-    else if(match == 1) printf("correct");
-    else if (match == 0) printf("incorrect");
-
-
+    if(s.size > 0 ) printf("incorrect: too many open parenthesis\n");
+    else if(s.size < 0 ) printf("incorrect: too many close parenthesis\n");
+    else if(match == 1) printf("correct\n");
+    else if (match == 0) printf("incorrect\n");  
+    pop_all(&s);
   }
+      
     return 0;
 }
